@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Object Constructor</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="add-book">
+        <div class="input-item">
+            <label>Title:</label>
+            <input type="text" id="title" class="book-input">
+        </div>
+
+        <div class="input-item">
+            <label>Author:</label>
+            <input type="text" id="author" class="book-input">
+        </div>
+
+        <div class="input-item">
+            <label>Pages:</label>
+            <input type="number" id="pages" class="book-input">
+        </div>
+
+        <div class="input-item">
+            <label for="readd">Read:</label>
+            <input type="checkbox" id="readd" class="book-input">
+        </div>
+
+        <button id="add-book-button">Add Book To Library</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Pages</th>
+                <th>Read?</th>
+                <th>Remove</th>
+              </tr>
+        </thead>
+        <tbody id="display-books-field">
+
+        </tbody>
+    </table>
+</body>
+</html>
