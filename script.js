@@ -1,13 +1,62 @@
-function Book(title, author, pages, read) {
+class Book {
+  constructor(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
-};
+  }
 
-// Book.prototype.info = function() {
-//     return `${this.title} by ${this.author}, ${this.pages}, ${this.read}`;
-// };
+  // getters
+  get title() {
+    return this._title;
+  }
+
+  get author() {
+    return this._author;
+  }
+
+  get pages() {
+    return this._pages;
+  }
+
+  get read() {
+    return this._read;
+  }
+
+  // setters
+  set title(value) {
+    if (value.length < 1) {
+      alert("Title is too short.");
+      return;
+    }
+    this._title = value;
+  }
+
+  set author(value) {
+    if (value.length < 1) {
+      alert("Author name is too short.");
+      return;
+    }
+    this._author = value;
+  }
+
+  set pages(value) {
+    if (value < 1) {
+      alert("Number of pages is too low");
+      return;
+    }
+    this._pages = value;
+  }
+
+  set read(value) {
+    if (value === true || value === false) {
+      this._read = value;
+    } else {
+      alert("Read value must be either true or false");
+      return;
+    }
+  }
+};
 
 let myLibrary = [];
 
@@ -17,8 +66,11 @@ addButton.addEventListener('click', addBookToLibrary);
 function addBookToLibrary() {
     const inputElementValues = document.querySelectorAll('.book-input');
     const book = new Book(inputElementValues[0].value, inputElementValues[1].value, inputElementValues[2].value, checkReadBox(inputElementValues[3]));
-    myLibrary.push(book);
-    displayBooks(); // generates the dispaly again after adding a new object to the array
+    //Object.keys() counts all the enumerable properties of the 'book' object; if some property doesn't exist (didn't meet the condition specified in the class setter) then this object is not added to the array
+    if (Object.keys(book).length === 4) {
+      myLibrary.push(book);
+      displayBooks(); // generates the dispaly again after adding a new object to the array
+    }
 };
 
 function checkReadBox(boxToCheck) {
